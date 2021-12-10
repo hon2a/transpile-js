@@ -6,11 +6,11 @@ Default Babel config and build scripts for other JavaScript packages
 
 1. Install using:
     ```sh
-    npm install @wisersolutions/transpile-js
+    npm install @hon2a/transpile-js
     ```
 1. Create a `babel.config.js` or `.babelrc.js` file in the root folder of your package:
     ```javascript
-    module.exports = require('@wisersolutions/transpile-js/babel.config')
+    module.exports = require('@hon2a/transpile-js/babel.config')
     ```
     _This step is optional, but needed if you use any other tools that rely on Babel, such as
     Eslint or Jest. However, if you do this, you need to install the used presets

@@ -1,6 +1,6 @@
 {
   "name": "@hon2a/transpile-js",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Default Babel config and build scripts for other JavaScript packages",
   "repository": {
     "type": "git",

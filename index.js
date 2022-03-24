@@ -10,6 +10,7 @@ const minimatch = require('minimatch')
 const parseArgs = require('minimist')
 const { walkSync } = require('@hon2a/walk-sync')
 const escapeRegExp = require('lodash.escaperegexp')
+const isArray = require('lodash.isarray')
 
 const { MODULE, LIB } = require('./env')
 
@@ -21,8 +22,9 @@ const path = cyan
 const {
   _: [sourceFolder = 'src'],
   verbose,
-  extensions
-} = parseArgs(process.argv.slice(2), { boolean: ['verbose'], string: ['extensions'], default: { extensions: '.js' } })
+  extensions,
+  ignore: ignoreFromArgs
+} = parseArgs(process.argv.slice(2), { boolean: ['verbose'], string: ['extensions', 'ignore'], default: { extensions: '.js' } })
 const moduleFolder = 'es'
 const libFolder = 'lib'
 
@@ -88,7 +90,8 @@ log(
     : `Babel config found in ${path(relative(cwd, partialConfig.babelrc || partialConfig.config))}.`
 )
 
-const ignore = [`**/*.test${extensions}`, `**/*.test${extensions}.snap`]
+const normalIgnoreFromArgs = ignoreFromArgs && (isArray(ignoreFromArgs) ? ignoreFromArgs : [ignoreFromArgs])
+const ignore = normalIgnoreFromArgs || [`**/*.test${extensions}`, `**/*.test${extensions}.snap`]
 const rules = [
   [`**/*${extensions}`, transpileJs, 'transpiled'],
   ['**/*', copyAsset, 'copied']

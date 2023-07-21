@@ -24,7 +24,11 @@ const {
   verbose,
   extensions,
   ignore: ignoreFromArgs
-} = parseArgs(process.argv.slice(2), { boolean: ['verbose'], string: ['extensions', 'ignore'], default: { extensions: '.js' } })
+} = parseArgs(process.argv.slice(2), {
+  boolean: ['verbose'],
+  string: ['extensions', 'ignore'],
+  default: { extensions: '.js' }
+})
 const moduleFolder = 'es'
 const libFolder = 'lib'
 

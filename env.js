@@ -1,4 +1,2 @@
-module.exports = {
-  MODULE: 'module',
-  LIB: 'lib'
-}
+export const MODULE = 'module'
+export const LIB = 'lib'

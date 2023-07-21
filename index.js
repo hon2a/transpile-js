@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
-const { spawnSync } = require('child_process')
-const { relative, resolve } = require('path')
-const { readFileSync } = require('fs')
-const { copySync, outputFileSync } = require('fs-extra')
-const babel = require('@babel/core')
-const chalk = require('chalk')
-const minimatch = require('minimatch')
-const parseArgs = require('minimist')
-const { walkSync } = require('@hon2a/walk-sync')
-const escapeRegExp = require('lodash.escaperegexp')
-const isArray = require('lodash.isarray')
+import { spawnSync } from 'child_process'
+import { relative, resolve } from 'path'
+import { readFileSync } from 'fs'
+import { copySync, outputFileSync } from 'fs-extra'
+import babel from '@babel/core'
+import chalk from 'chalk'
+import minimatch from 'minimatch'
+import parseArgs from 'minimist'
+import { walkSync } from '@hon2a/walk-sync'
+import * as escapeRegExp from 'lodash.escaperegexp'
+import * as isArray from 'lodash.isarray'
 
-const { MODULE, LIB } = require('./env')
+import { MODULE, LIB } from './env'
 
 //region Config
 
